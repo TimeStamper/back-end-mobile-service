@@ -1,5 +1,5 @@
 ##
-# Created: 26 juli 2015
+# Created: 04 october 2015
 #  Author: Erik
 #    File: dependencies.mk
 #    Info: Specifies the dependencies attributed this module.
@@ -12,7 +12,7 @@ calender_dependencies=1
 # Module Dependencies
 #
 INCLUDES := \
-  -I$(DEV_SRC)/$(CALENDER_PATH)/include \
+  -I$(DEV_SRC)/$(CALENDER_PATH) \
   $(INCLUDES) \
   #
 

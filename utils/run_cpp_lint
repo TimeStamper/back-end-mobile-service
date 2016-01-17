@@ -1,0 +1,12 @@
+#!/bin/bash
+
+specified_dir=$1
+cpp_lint=$DEV_DIR/repos/utilities/bin/cpplint.py
+
+if [ -z $specified_dir ]; then
+  root_search_dir=$DEV_SRC
+else
+  root_search_dir=$specified_dir
+fi
+
+find $root_search_dir \( -name *.c* -o -name *.h* \) | xargs python $cpp_lint
