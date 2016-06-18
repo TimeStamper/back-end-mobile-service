@@ -14,15 +14,11 @@ BUILD_SYSTEM_ENTRY_POINT_PATH := make/system/core
 #---------------------------------------------------------------------------------------------------
 # Module Paths
 #
-CALENDER_PATH := registry/calender
-DAY_PATH := registry/building_blocks/day
+CALENDER_PATH := calender
 DAY_ENTRY_PATH := day_entry
-MONTH_PATH := registry/building_blocks/month
 STAMP_PATH := stamp
 TEST_MAIN_PATH := core/main/test
 TYPES_PATH := core/types
-WEEK_PATH := registry/building_blocks/week
-YEAR_PATH := registry/building_blocks/year
 
 #---------------------------------------------------------------------------------------------------
 # Tracks Paths

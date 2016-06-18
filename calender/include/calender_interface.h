@@ -5,8 +5,8 @@
  *    File: calender_interface.h
  */
 
-#ifndef REGISTRY_CALENDER_INCLUDE_CALENDER_INTERFACE_H_
-#define REGISTRY_CALENDER_INCLUDE_CALENDER_INTERFACE_H_
+#ifndef CALENDER_INCLUDE_CALENDER_INTERFACE_H_
+#define CALENDER_INCLUDE_CALENDER_INTERFACE_H_
 
 #include "include/calender_types.h"
 
@@ -67,4 +67,4 @@ inline Calender::Calender() { }
 
 }  // namespace time_stamper
 
-#endif  // REGISTRY_CALENDER_INCLUDE_CALENDER_INTERFACE_H_
+#endif  // CALENDER_INCLUDE_CALENDER_INTERFACE_H_
