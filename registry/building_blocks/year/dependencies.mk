@@ -1,37 +1,33 @@
 ##
-# Created: 26 juli 2015
+# Created: 17 january 2016
 #  Author: Erik
 #    File: dependencies.mk
 #    Info: Specifies the dependencies attributed this module.
 #
 
-ifndef test_main_dependencies
-test_main_dependencies=1
+ifndef year_dependencies
+year_dependencies=1
 
 #---------------------------------------------------------------------------------------------------
 # Module Dependencies
 #
-include $(DEV_SRC)/$(TYPES_PATH)/dependencies.mk
+include $(DEV_SRC)/$(MONTH_PATH)/dependencies.mk
 
 INCLUDES := \
+  -I$(DEV_SRC)/$(YEAR_PATH) \
   $(INCLUDES) \
   #
 
 
 SOURCE_FILES := \
-  $(DEV_SRC)/$(TEST_MAIN_PATH)/source/test_main.cc \
+  $(DEV_SRC)/$(YEAR_PATH)/source/year.cc \
   $(SOURCE_FILES) \
   #
 
 
 TEST_FILES := \
+  $(DEV_SRC)/$(YEAR_PATH)/test/year_test.cc \
   $(TEST_FILES) \
-  #
-
-
-LIBRARIES := \
-  /mnt/develop/sw/boost/boost_1_58_0/stage/lib/libboost_date_time.a \
-  $(LIBRARIES) \
   #
 
 #---------------------------------------------------------------------------------------------------

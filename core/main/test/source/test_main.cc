@@ -1,6 +1,7 @@
 /**
- * Created: 26 juli 2015
- *  Author: Erik
+ * Copyright 2015 Erik Ahlberg
+ * Created: Jul 26, 2015
+ *  Author: erik
  *    File: test_main.cc
  */
 

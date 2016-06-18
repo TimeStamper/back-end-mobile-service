@@ -57,6 +57,6 @@ TEST_F(DayEntryFixture,
   ASSERT_EQ(expected_stamps.size(), actual_stamps.size());
 }
 
-} // namespace development_test
+}  // namespace development_test
 
 }  // namespace time_stamper

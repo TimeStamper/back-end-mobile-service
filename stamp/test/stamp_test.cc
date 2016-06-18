@@ -48,8 +48,8 @@ TEST_F(StampFixture,
 //  const Stamp stamp_copy(stamp_);
 
   // Verify
-  // TODO: Update this test. For now it is left empty since it is not yet known exactly how to
-  //       observe all the data members.
+  // TODO(erik): Update this test. For now it is left empty since it is not
+  //              yet known exactly how to observe all the data members.
   ASSERT_TRUE(true);
 }
 
@@ -63,8 +63,8 @@ TEST_F(StampFixture,
 //  stamp_assignment = stamp_;
 
   // Verify
-  // TODO: Update this test. For now it is left empty since it is not yet known exactly how to
-  //       observe all the data members.
+  // TODO(erik): Update this test. For now it is left empty since it is not
+  //             yet known exactly how to observe all the data members.
   ASSERT_TRUE(true);
 }
 

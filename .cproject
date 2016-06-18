@@ -28,12 +28,14 @@
 								<option id="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level.2091635736" name="Debug Level" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.755509101" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;G:\sw\boost\boost_1_58_0&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/c++/4.8"/>
 									<listOptionValue builtIn="false" value="&quot;G:\sw\gmock\gmock-1.7.0\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;G:\sw\gmock\gmock-1.7.0\gtest\include&quot;"/>
 									<listOptionValue builtIn="false" value="/mnt/develop/sw/boost/boost_1_58_0"/>
 									<listOptionValue builtIn="false" value="/mnt/develop/sw/gmock/gmock-1.7.0/include"/>
 									<listOptionValue builtIn="false" value="/mnt/develop/sw/gmock/gmock-1.7.0/gtest/include"/>
 									<listOptionValue builtIn="false" value="/usr/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/linux"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1640181906" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 							</tool>
@@ -44,6 +46,10 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug.236575605" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug.192405636" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug">
+								<option id="gnu.cpp.link.option.paths.1289834393" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="/usr/lib"/>
+									<listOptionValue builtIn="false" value="/mnt/develop/sw/gmock/gmock-1.7.0/lib/linux"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1293782370" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
