@@ -11,6 +11,9 @@ calender_dependencies=1
 #---------------------------------------------------------------------------------------------------
 # Module Dependencies
 #
+include $(DEV_SRC)/$(DAY_ENTRY_PATH)/dependencies.mk
+
+
 INCLUDES := \
   -I$(DEV_SRC)/$(CALENDER_PATH) \
   $(INCLUDES) \

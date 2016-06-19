@@ -8,18 +8,22 @@
 #ifndef CALENDER_INCLUDE_CALENDER_INTERFACE_H_
 #define CALENDER_INCLUDE_CALENDER_INTERFACE_H_
 
+#include <map>
 #include "include/calender_types.h"
 
 namespace time_stamper {
+
+// Forward declarations.
+class DayEntry;
 
 namespace interface {
 
 /**
  * @brief A dedicated calender.
  *
- * Provides an atypical calender functionality for the client by acting as a dedicated handler for
- * <b>Gregorian</b> date objects. This module contains intelligent functionality for adding dates
- * into its list and somewhat rudimentary access methods for added dates.
+ * Provides an atypical calender functionality for the client by acting as a
+ * dedicated handler for <b>Gregorian</b> date objects. This module contains
+ * intelligent functionality for adding, and retrieving, dates into its list.
  */
 class Calender {
  public:
@@ -39,13 +43,13 @@ class Calender {
   virtual void addDate(const GregorianDate& designated_date) = 0;
 
   /**
-   * @brief Retrieves the list of dates.
+   * @brief Retrieves the corresponding entry for the given date.
    *
-   * Provides access to the existing dates of the <b>Calender</b> object to the user.
-   *
-   * @return List of existing dates.
+   * Returns the <b>Day Entry</b> object corresponding to the user specified
+   * date. If it does not exist, a default <b>Day Entry</b> object is returned.
    */
-  virtual const DateList& getDateList() const = 0;
+  virtual const DayEntry& getDate(
+      const GregorianDate& designated_date) const = 0;
 
  protected:
   Calender();

@@ -14,9 +14,10 @@
 
 namespace time_stamper {
 
+/**
+ * Defines the <b>Gregorian</b> date type used to specify calender entries.
+ */
 typedef boost::gregorian::date GregorianDate;
-
-typedef std::vector<boost::gregorian::date> DateList;
 
 }  // namespace time_stamper
 

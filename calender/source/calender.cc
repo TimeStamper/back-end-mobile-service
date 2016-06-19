@@ -5,36 +5,45 @@
  *    File: calender.cc
  */
 
-#include "include/calender.h"
 #include <algorithm>
+#include "include/calender.h"
+#include "include/day_entry.h"
 
 namespace time_stamper {
 
 Calender::Calender()
 : interface::Calender(),
+  default_date_entry_(new DayEntry()),
   list_of_dates_() {
 }
 
 
 Calender::~Calender() {
+  delete default_date_entry_;
 }
 
 
 void Calender::addDate(const GregorianDate& designated_date) {
-  DateList::const_iterator iter;
+  DayEntry date_entry;
 
-  iter = std::find(list_of_dates_.begin(),
-                   list_of_dates_.end(),
-                   designated_date);
+  date_entry.stamp();
 
-  if (iter == list_of_dates_.end()) {
-    list_of_dates_.push_back(designated_date);
-  }
+  list_of_dates_.insert(std::make_pair(designated_date,
+                                       date_entry));
 }
 
 
-const DateList& Calender::getDateList() const {
-  return list_of_dates_;
+const DayEntry& Calender::getDate(const GregorianDate& designated_date) const {
+  const DayEntry* day_entry = default_date_entry_;
+
+  const DateList::const_iterator iterator =
+      list_of_dates_.find(designated_date);
+
+  if (iterator != list_of_dates_.end()) {
+    day_entry = &list_of_dates_.at(designated_date);
+  }
+
+  return *day_entry;
 }
 
 }  // namespace time_stamper

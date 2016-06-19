@@ -26,9 +26,13 @@ class Calender : public interface::Calender {
 
   virtual void addDate(const GregorianDate& designated_date);
 
-  virtual const DateList& getDateList() const;
+  virtual const DayEntry& getDate(const GregorianDate& designated_date) const;
 
  private:
+  typedef std::map<GregorianDate,
+                   DayEntry> DateList;
+
+  DayEntry* default_date_entry_;
   DateList list_of_dates_;
 
   Calender(const Calender&);

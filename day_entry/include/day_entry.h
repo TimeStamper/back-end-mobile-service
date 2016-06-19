@@ -14,30 +14,45 @@
 namespace time_stamper {
 
 /**
- * \brief Definition of concrete class implementation.
+ * @brief Definition of concrete class implementation.
  */
 class DayEntry : public interface::DayEntry {
  public:
   /**
-   * \brief Default constructor.
+   * @brief Default constructor.
    */
   DayEntry();
 
   /**
-   * \brief destructor.
+   * @brief Copy constructor.
+   *
+   * @param Rhs The object to be copied from.
+   */
+  DayEntry(const DayEntry&);
+
+  /**
+   * @brief destructor.
    */
   virtual ~DayEntry();
 
-  virtual void stampDay();
+  /**
+   * @brief Assignment operator.
+   *
+   * @param Rhs The object to be assigned from.
+   * @return Reference to this newly assigned object.
+   */
+  DayEntry& operator =(const DayEntry&);
+
+  virtual BooleanType containsStamps() const;
 
   virtual const StampList& getStamps() const;
 
+  virtual void stamp();
+
  private:
+  BooleanType has_stamps_;
+  Stamp active_stamp_;
   StampList stamps_;
-
-  DayEntry(const DayEntry&);
-
-  DayEntry& operator =(const DayEntry&);
 };
 
 }  // namespace time_stamper

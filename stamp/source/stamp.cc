@@ -9,18 +9,19 @@
 
 namespace time_stamper {
 
-using boost::posix_time::ptime;
-using boost::posix_time::second_clock;
-
 Stamp::Stamp()
-: check_in_(new ptime()),
-  check_out_(new ptime()) {
+: interface::Stamp(),
+  active_status_(false),
+  check_in_(new TimeStamp()),
+  check_out_(new TimeStamp()) {
 }
 
 
 Stamp::Stamp(const Stamp& Rhs)
-: check_in_(new ptime(*Rhs.check_in_)),
-  check_out_(new ptime(*Rhs.check_out_)) {
+: interface::Stamp(),
+  active_status_(Rhs.active_status_),
+  check_in_(new TimeStamp(*Rhs.check_in_)),
+  check_out_(new TimeStamp(*Rhs.check_out_)) {
 }
 
 
@@ -35,8 +36,9 @@ Stamp& Stamp::operator =(const Stamp& Rhs) {
     delete check_in_;
     delete check_out_;
 
-    check_in_ = new ptime(*Rhs.check_in_);
-    check_out_ = new ptime(*Rhs.check_out_);
+    active_status_ = Rhs.active_status_;
+    check_in_ = new TimeStamp(*Rhs.check_in_);
+    check_out_ = new TimeStamp(*Rhs.check_out_);
   }
 
   return *this;
@@ -44,12 +46,36 @@ Stamp& Stamp::operator =(const Stamp& Rhs) {
 
 
 void Stamp::checkIn() {
-  check_in_ = new ptime(second_clock::local_time());
+  active_status_ = true;
+
+  check_in_ = new TimeStamp(boost::posix_time::second_clock::local_time());
 }
 
 
 void Stamp::checkOut() {
-  check_out_ = new ptime(second_clock::local_time());
+  active_status_ = false;
+
+  check_out_ = new TimeStamp(boost::posix_time::second_clock::local_time());
+}
+
+
+const TimeStamp& Stamp::getCheckInTime() const {
+  return *check_in_;
+}
+
+
+const TimeStamp& Stamp::getCheckOutTime() const {
+  return *check_out_;
+}
+
+
+StampDuration Stamp::getDuration() const {
+  return (*check_out_ - *check_in_);
+}
+
+
+BooleanType Stamp::isActive() const {
+  return active_status_;
 }
 
 }  // namespace time_stamper

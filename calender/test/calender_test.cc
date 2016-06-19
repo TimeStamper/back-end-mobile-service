@@ -7,6 +7,7 @@
 
 #include "gtest/gtest.h"
 #include "include/calender.h"
+#include "include/day_entry.h"
 #include "include/time_stamper_types.h"
 
 namespace time_stamper {
@@ -14,20 +15,18 @@ namespace time_stamper {
 namespace development_test {
 
 /**
- * \brief Summary description
- *
- * Optional: Detailed description
+ * @brief Fixture used for testing the <b>Calender</b> module.
  */
 class Calender_Fixture : public ::testing::Test {
  protected:
   Calender calender_;
   /**
-   * \brief Default constructor.
+   * @brief Default constructor.
    */
   Calender_Fixture();
 
   /**
-   * \brief Destructor.
+   * @brief Destructor.
    */
   virtual ~Calender_Fixture();
 };
@@ -42,41 +41,37 @@ Calender_Fixture::~Calender_Fixture() {
 
 
 TEST_F(Calender_Fixture,
-       TestThatIfDateDoesNotExistItIsAdded) {
+       TestThatRetrievingExistingDateWorksCorrectly) {
   // Test setup
   const std::string date_string = "2000/01/01";
+  const BooleanType expected_stamp_status = true;
   GregorianDate date(boost::gregorian::from_simple_string(date_string));
-  const UnsignedIntegerType expected_date_list_size = 1;
 
   // Execute
   calender_.addDate(date);
 
   // Verify
-  const DateList& actual_date_list = calender_.getDateList();
+  const DayEntry& actual_date_entry = calender_.getDate(date);
 
-  ASSERT_EQ(expected_date_list_size,
-            static_cast<UnsignedIntegerType>(actual_date_list.size())) <<
-            "Date list size should be as expected.";
+  ASSERT_TRUE(expected_stamp_status == actual_date_entry.containsStamps()) <<
+              "Date list size should be as expected.";
 }
 
 
 TEST_F(Calender_Fixture,
-       TestThatIfDateExistsItIsNotAdded) {
+       TestThatTryingToRetrieveNonExistingDateReturnsDefaultDateEntry) {
   // Test setup
   const std::string date_string = "2000/01/01";
+  const BooleanType expected_stamp_status = false;
   GregorianDate date(boost::gregorian::from_simple_string(date_string));
-  const UnsignedIntegerType expected_date_list_size = 1;
 
   // Execute
-  calender_.addDate(date);
-  calender_.addDate(date);
 
   // Verify
-  const DateList& actual_date_list = calender_.getDateList();
+  const DayEntry& actual_date_entry = calender_.getDate(date);
 
-  ASSERT_EQ(expected_date_list_size,
-            static_cast<UnsignedIntegerType>(actual_date_list.size())) <<
-            "Date list size should be as expected.";
+  ASSERT_TRUE(expected_stamp_status == actual_date_entry.containsStamps()) <<
+              "Date list size should be as expected.";
 }
 
 }  // namespace development_test

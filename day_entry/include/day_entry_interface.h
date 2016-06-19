@@ -14,15 +14,19 @@
 
 namespace time_stamper {
 
+/**
+ * @brief Defines a list containing the stamps of a <b>Day Entry</b> object.
+ */
 typedef std::vector<Stamp> StampList;
 
 namespace interface {
 
 /**
- * \brief Specifies the elementary item of a <b>Calender</b> object.
+ * @brief Specifies the elementary item of a <b>Calender</b> object.
  *
- * Contains the necessary information needed to constitute an elementary item of an arbitrary
- * <b>Calender</b> object. Contains user specified stamp information along side date data.
+ * Contains the necessary information needed to constitute an elementary item
+ * of an arbitrary <b>Calender</b> object. Contains user specified stamp
+ * information along side date data.
  */
 class DayEntry {
  public:
@@ -32,21 +36,34 @@ class DayEntry {
   virtual ~DayEntry() = 0;
 
   /**
-   * \brief Conducts a stamping within the confines of a day.
+   * @brief Retrieves status on existence of time stamps.
    *
-   * Initiates a new stamp, i.e. a check in, if no previous day stamp is active. If a stamp is
-   * already active, this method will finalize it, i.e. conduct a check out.
+   * Returns the status value whether the object contains any time stamps or
+   * not. An object void of stamps is just the basic default <b>Day Entry</b>
+   * object.
+   *
+   * @return Boolean value representing the status of stamp existence.
    */
-  virtual void stampDay() = 0;
+  virtual BooleanType containsStamps() const = 0;
 
   /**
-   * \brief Provides access to the available stamps.
+   * @brief Provides access to the available stamps.
    *
    * Returns the user specified stamps available for the dedicated instance.
    *
-   * \return Constant reference to the list of available stamps.
+   * @return Constant reference to the list of available stamps.
    */
   virtual const StampList& getStamps() const = 0;
+
+  /**
+   * @brief Creates a new stamp.
+   *
+   * The created stamp is set as the active stamp of this object, with a
+   * creation time equal to the time of check in. If a new stamp is created
+   * when there already exists an active stamp, the previously active stamp
+   * is finalized and the new stamp is set to active.
+   */
+  virtual void stamp() = 0;
 
  protected:
   /**
