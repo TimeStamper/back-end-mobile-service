@@ -5,8 +5,8 @@
 #    Info: Specifies the dependencies attributed this module.
 #
 
-ifndef calender_dependencies
-calender_dependencies=1
+ifndef calendar_dependencies
+calendar_dependencies=1
 
 #---------------------------------------------------------------------------------------------------
 # Module Dependencies
@@ -15,19 +15,19 @@ include $(DEV_SRC)/$(DAY_ENTRY_PATH)/dependencies.mk
 
 
 INCLUDES := \
-  -I$(DEV_SRC)/$(CALENDER_PATH) \
+  -I$(DEV_SRC)/$(CALENDAR_PATH) \
   $(INCLUDES) \
   #
 
 
 SOURCE_FILES := \
-  $(DEV_SRC)/$(CALENDER_PATH)/source/calender.cc \
+  $(DEV_SRC)/$(CALENDAR_PATH)/source/calendar.cc \
   $(SOURCE_FILES) \
   #
 
 
 TEST_FILES := \
-  $(DEV_SRC)/$(CALENDER_PATH)/test/calender_test.cc \
+  $(DEV_SRC)/$(CALENDAR_PATH)/test/calendar_test.cc \
   $(TEST_FILES) \
   #
 

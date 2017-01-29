@@ -14,7 +14,7 @@ BUILD_SYSTEM_ENTRY_POINT_PATH := make/system/core
 #---------------------------------------------------------------------------------------------------
 # Module Paths
 #
-CALENDER_PATH := calender
+CALENDAR_PATH := calendar
 DAY_ENTRY_PATH := day_entry
 STAMP_PATH := stamp
 TEST_MAIN_PATH := core/main/test

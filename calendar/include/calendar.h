@@ -2,27 +2,27 @@
  * Copyright 2015 Erik Ahlberg
  * Created: Oct 4, 2015
  *  Author: erik
- *    File: calender.h
+ *    File: calendar.h
  */
 
-#ifndef CALENDER_INCLUDE_CALENDER_H_
-#define CALENDER_INCLUDE_CALENDER_H_
+#ifndef CALENDAR_INCLUDE_CALENDAR_H_
+#define CALENDAR_INCLUDE_CALENDAR_H_
 
-#include "include/calender_interface.h"
+#include "include/calendar_interface.h"
 
 namespace time_stamper {
 
-class Calender : public interface::Calender {
+class Calendar : public interface::Calendar {
  public:
   /**
    * \brief Default constructor.
    */
-  Calender();
+  Calendar();
 
   /**
    * \brief destructor.
    */
-  virtual ~Calender();
+  virtual ~Calendar();
 
   virtual void addDate(const GregorianDate& designated_date);
 
@@ -35,11 +35,11 @@ class Calender : public interface::Calender {
   DayEntry* default_date_entry_;
   DateList list_of_dates_;
 
-  Calender(const Calender&);
+  Calendar(const Calendar&);
 
-  Calender& operator =(const Calender&);
+  Calendar& operator =(const Calendar&);
 };
 
 }  // namespace time_stamper
 
-#endif  // CALENDER_INCLUDE_CALENDER_H_
+#endif  // CALENDAR_INCLUDE_CALENDAR_H_

@@ -2,28 +2,29 @@
  * Copyright 2015 Erik Ahlberg
  * Created: Oct 4, 2015
  *  Author: erik
- *    File: calender.cc
+ *    File: calendar.cc
+ *
  */
 
 #include <algorithm>
-#include "include/calender.h"
+#include "include/calendar.h"
 #include "include/day_entry.h"
 
 namespace time_stamper {
 
-Calender::Calender()
-: interface::Calender(),
+Calendar::Calendar()
+: interface::Calendar(),
   default_date_entry_(new DayEntry()),
   list_of_dates_() {
 }
 
 
-Calender::~Calender() {
+Calendar::~Calendar() {
   delete default_date_entry_;
 }
 
 
-void Calender::addDate(const GregorianDate& designated_date) {
+void Calendar::addDate(const GregorianDate& designated_date) {
   DayEntry date_entry;
 
   date_entry.stamp();
@@ -33,7 +34,7 @@ void Calender::addDate(const GregorianDate& designated_date) {
 }
 
 
-const DayEntry& Calender::getDate(const GregorianDate& designated_date) const {
+const DayEntry& Calendar::getDate(const GregorianDate& designated_date) const {
   const DayEntry* day_entry = default_date_entry_;
 
   const DateList::const_iterator iterator =

@@ -2,14 +2,15 @@
  * Copyright 2015 Erik Ahlberg
  * Created: Oct 4, 2015
  *  Author: erik
- *    File: calender_interface.h
+ *    File: calendar_interface.h
+ *
  */
 
-#ifndef CALENDER_INCLUDE_CALENDER_INTERFACE_H_
-#define CALENDER_INCLUDE_CALENDER_INTERFACE_H_
+#ifndef CALENDAR_INCLUDE_CALENDAR_INTERFACE_H_
+#define CALENDAR_INCLUDE_CALENDAR_INTERFACE_H_
 
 #include <map>
-#include "include/calender_types.h"
+#include "include/calendar_types.h"
 
 namespace time_stamper {
 
@@ -19,23 +20,23 @@ class DayEntry;
 namespace interface {
 
 /**
- * @brief A dedicated calender.
+ * @brief A dedicated calendar.
  *
- * Provides an atypical calender functionality for the client by acting as a
+ * Provides an atypical calendar functionality for the client by acting as a
  * dedicated handler for <b>Gregorian</b> date objects. This module contains
  * intelligent functionality for adding, and retrieving, dates into its list.
  */
-class Calender {
+class Calendar {
  public:
   /**
    * @brief Destructor.
    */
-  virtual ~Calender() = 0;
+  virtual ~Calendar() = 0;
 
   /**
-   * @brief Adds a date to the calender.
+   * @brief Adds a date to the calendar.
    *
-   * Checks if the date already exists in the calender. If not, adds it,
+   * Checks if the date already exists in the calendar. If not, adds it,
    * otherwise nothing is done.
    *
    * @param designated_date The date to be added.
@@ -52,23 +53,23 @@ class Calender {
       const GregorianDate& designated_date) const = 0;
 
  protected:
-  Calender();
+  Calendar();
 
  private:
-  Calender(const Calender&);
+  Calendar(const Calendar&);
 
-  Calender& operator =(const Calender&);
+  Calendar& operator =(const Calendar&);
 };
 
 
-inline Calender::~Calender() { }
+inline Calendar::~Calendar() { }
 
 
-inline Calender::Calender() { }
+inline Calendar::Calendar() { }
 
 
 }  // namespace interface
 
 }  // namespace time_stamper
 
-#endif  // CALENDER_INCLUDE_CALENDER_INTERFACE_H_
+#endif  // CALENDAR_INCLUDE_CALENDAR_INTERFACE_H_

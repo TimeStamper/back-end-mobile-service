@@ -3,6 +3,7 @@
  * Created: 10 aug. 2015
  *  Author: Erik
  *    File: day_entry_interface.h
+ *
  */
 
 
@@ -22,10 +23,10 @@ typedef std::vector<Stamp> StampList;
 namespace interface {
 
 /**
- * @brief Specifies the elementary item of a <b>Calender</b> object.
+ * @brief Specifies the elementary item of a <b>Calendar</b> object.
  *
  * Contains the necessary information needed to constitute an elementary item
- * of an arbitrary <b>Calender</b> object. Contains user specified stamp
+ * of an arbitrary <b>Calendar</b> object. Contains user specified stamp
  * information along side date data.
  */
 class DayEntry {

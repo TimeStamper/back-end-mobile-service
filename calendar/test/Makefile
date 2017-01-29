@@ -14,8 +14,8 @@ include $(DEV_SRC)/path_definitions.mk
 #---------------------------------------------------------------------------------------------------
 # Build Definitions
 #
-EXECUTABLE_NAME := calender_test
-EXECUTABLE_PATH := $(CALENDER_PATH)
+EXECUTABLE_NAME := calendar_test
+EXECUTABLE_PATH := $(CALENDAR_PATH)
 TARGET_ENVIRONMENT := x86
 SOURCE_LANGUAGE := cpp
 TARGET_TYPE := test
@@ -24,7 +24,7 @@ TARGET_TYPE := test
 #---------------------------------------------------------------------------------------------------
 # Module Dependencies
 #
-include $(DEV_SRC)/$(CALENDER_PATH)/dependencies.mk
+include $(DEV_SRC)/$(CALENDAR_PATH)/dependencies.mk
 include $(DEV_SRC)/$(TEST_MAIN_PATH)/dependencies.mk
 
 
